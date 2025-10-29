@@ -53,15 +53,28 @@ function displayBooks () {
         pPages.setAttribute("class", "pCard");
         card.appendChild(pPages);
 
-        let pRead = document.createElement("p")
-        pRead.setAttribute("class", "pCard")
+        let pRead = document.createElement("p");
+        pRead.setAttribute("class", "pCard");
         card.appendChild(pRead);
 
-        let pId = document.createElement("p")
-        pId.setAttribute("class", "pCard")
+        let pId = document.createElement("p");
+        pId.setAttribute("class", "pCard");
         card.appendChild(pId);
 
+        let deleteBookButton = document.createElement("button");
+        deleteBookButton.setAttribute("class", "deleteBookButton");
+        deleteBookButton.setAttribute("id", myLibrary[i].id)
+        deleteBookButton.textContent = "Delete"
+        card.appendChild(deleteBookButton);
 
+        deleteBookButton.addEventListener("pointerup", function () {
+            for (let i = 0; i < myLibrary.length; i++) {
+                if(myLibrary[i].id == deleteBookButton.id) {
+                    myLibrary.splice(i, 1)
+                }
+            }
+            displayBooks();
+        })
 
         h3Title.textContent = myLibrary[i].title;
         h4Author.textContent = myLibrary[i].author;
@@ -74,7 +87,7 @@ function displayBooks () {
 
 //Eventlisteners
 
-inputButtonAddBook.addEventListener("click", function () {
+inputButtonAddBook.addEventListener("pointerup", function () {
     let tempTitle = inputTitle.value;
     let tempAuthor = inputAuthor.value;
     let tempPages = inputPages.value;
@@ -94,6 +107,6 @@ addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 420, true);
 // addBookToLibrary("Homework", "Me", 24, false);
 // addBookToLibrary("Prüfungsamt", "IU University", 23, true);
 displayBooks();
-console.log(myLibrary);
+
 
 
