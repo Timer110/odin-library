@@ -37,24 +37,63 @@ function addBookToLibrary (title, author, pages, read) {
 }
 
 function displayBooks () {
+    bookshelf.innerHTML = "";
+
     for (let i = 0; i < myLibrary.length; i++) {
         let card = document.createElement("div");
         card.setAttribute("class", "card");
-        card.textContent = myLibrary[i].title;
+
+        let h3Title = document.createElement("h3");
+        card.appendChild(h3Title);
+
+        let h4Author = document.createElement("h4");
+        card.appendChild(h4Author);
+
+        let pPages = document.createElement("p");
+        pPages.setAttribute("class", "pCard");
+        card.appendChild(pPages);
+
+        let pRead = document.createElement("p")
+        pRead.setAttribute("class", "pCard")
+        card.appendChild(pRead);
+
+        let pId = document.createElement("p")
+        pId.setAttribute("class", "pCard")
+        card.appendChild(pId);
+
+
+
+        h3Title.textContent = myLibrary[i].title;
+        h4Author.textContent = myLibrary[i].author;
+        pPages.textContent = myLibrary[i].pages;
+        pRead.textContent = myLibrary[i].read;
+        pId.textContent = myLibrary[i].id;
         bookshelf.appendChild(card);
     }
 }
 
+//Eventlisteners
+
+inputButtonAddBook.addEventListener("click", function () {
+    let tempTitle = inputTitle.value;
+    let tempAuthor = inputAuthor.value;
+    let tempPages = inputPages.value;
+    let tempRead = inputRead.checked;
+
+    addBookToLibrary(tempTitle, tempAuthor, tempPages, tempRead);
+    displayBooks();
+} );
+
 
 // Operands
 
-displayBooks();
 
 
 // Debug
 addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 420, true);
-addBookToLibrary("Homework", "Me", 24, false);
-addBookToLibrary("Prüfungsamt", "IU University", 23, true);
+// addBookToLibrary("Homework", "Me", 24, false);
+// addBookToLibrary("Prüfungsamt", "IU University", 23, true);
+displayBooks();
 console.log(myLibrary);
 
 

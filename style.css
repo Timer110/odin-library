@@ -1,3 +1,17 @@
+h3 {
+    color: black;
+    font-size: 25px;
+    margin: 0;
+
+}
+
+h4 {
+    color: gray;
+    font-size: 15px;
+    margin: 0;
+}
+
+
 .card {
     height: 200px;
     width: 200px;
@@ -5,12 +19,17 @@
     background-color: lightgray;
     border: 1px solid black;
     border-radius: 7px;
+
+}
+.pCard {
+    
 }
 .bookshelf{
     border: 1px solid black;
     display: flex;
     gap: 10px;
 }
+
 .newBookFormular {
     height: 500px;
     width: 500px;
