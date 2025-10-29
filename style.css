@@ -1,0 +1,19 @@
+.card {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+.bookshelf{
+    border: 1px solid black;
+    display: flex;
+    gap: 10px;
+}
+.newBookFormular {
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 7px;
+}
